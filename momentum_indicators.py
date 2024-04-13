@@ -11,8 +11,13 @@ fig = go.Figure(data=[
                    open = df['Open'],
                    high = df['High'],
                    low = df['Low'],
-                   close = df['Close']),
+                   close = df['Close'],
+                   name = "Brent"),
                    go.Scatter(x=df.index,y=df["RSI_10"],name='RSI',yaxis='y2')
 
 ])
+fig.update_layout(title='Brent With RSI_10',yaxis=dict(domain = [0.2,1]),
+                  yaxis2=dict(domain=[0,0.2],anchor='free',
+                  side='right',overlaying='y')
+                   )
 fig.show()
